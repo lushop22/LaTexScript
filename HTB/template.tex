@@ -1,0 +1,139 @@
+\documentclass[a4paper]{article} %Formato de plantilla 
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm, top=2cm, includefoot]{geometry}
+\usepackage{graphicx} %Para la insercion de imagen
+\usepackage{soul} %Para el sombreado de textos
+\usepackage[table,xcdraw]{xcolor} %Para la deteccion de colores
+\usepackage[most]{tcolorbox} %Para insercion se cuadros en la portada
+\usepackage{fancyhdr} %Definir el estilo de la pagina
+\usepackage[hidelinks]{hyperref} %Gestion de hipervinculos
+\usepackage{listing} %para la insercion del codigo en el documento
+\usepackage{parskip} %arreglo del a tabulacion en el documento 
+\usepackage{smartdiagram} %Pala la insercion de diagramas
+\usepackage{zed-csp} %Para la insercion de esquemas
+
+%Declaracion de colores
+\definecolor{greenPortada}{HTML}{599c3a}
+
+%Declaracion de variables
+
+\newcommand{\logoPortada}{DIRECCION_ACTUAL/HTBlogo.png}
+\newcommand{\logoMachine}{DIRECCION_ACTUAL/MachineLogoExample.png}
+\newcommand{\machineName}{Nombre de la Maquina} %Nombre de la maquina
+\newcommand{\startDate}{Dia de hoy}
+
+
+%Adicionales
+\addto\captionsspanish{\renewcommand{\contentsname}{Indice}} %Cambio delformato del infice
+\setlength{\headheight}{40.2pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\includegraphics[width=2.5cm]{\logoPortada}}\rhead{\includegraphics[height=1.6cm]{\logoMachine}}
+\renewcommand{\headrulewidth}{3pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{greenPortada}\leaders\hrule height \headrulewidth\hfill}}
+
+
+%Comienzo del documento
+\begin{document}
+  \cfoot{\thepage}
+  % Creacion de Portada
+  \begin{titlepage}
+  \centering
+    \includegraphics[width=0.4\textwidth]{\logoPortada}\par\vspace{1cm}
+    {\scshape\LARGE \textbf{Apuntes importantes}\par}
+    \vspace{0.2cm}
+    {\Huge\bfseries\textcolor{greenPortada}{Maquina \machineName}\par}
+    \vfill\vfill
+    \includegraphics[width=\textwidth,height=9cm,keepaspectratio]{\logoMachine}\par\vspace{1cm}
+    \vfill 
+    \begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+      \centering
+      Cuadro para colocar alguna informacion importante de la maquina o del
+      informe
+    \end{tcolorbox}
+    \vfill
+    {\large \startDate\par}
+    \vfill
+  \end{titlepage}
+
+  %-----------------------------------------------------------------
+  %Comienzo del TOC
+  \clearpage
+  \tableofcontents
+  \clearpage
+  %-----------------------------------------------------------------
+
+  \section{Ejemplo de Section}
+
+  \subsection{Ejemplo de Subsection}
+
+  \subsubsection{Ejemplo de Subsubsection}
+
+  \section{Ejemplo de Imagen}
+
+  Imagen que este con el tamanio del Texto en 0.5 
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{\logoPortada}
+    \caption{Caption para la imagen}
+  \end{figure}
+
+  \section{Ejemplo de listas} 
+
+  \begin{enumerate}
+    \item Primer Elemento enumerado
+    \item Segundo Elemento enumerado
+  \end{enumerate}
+
+
+  \begin{itemize}
+    \item Primer Elemento sin enumerar
+    \item Segundo Elemento sin enumerar
+  \end{itemize}
+
+
+  \section{Ejemplo de smart diagram}
+
+
+  \begin{figure}[h]
+    \begin{center}
+      \smartdiagram[priority descriptive diagram]{
+        Reconocimiento sobre el sistema,
+        Dereccion de vulnerabilidades,
+        Explotacion de vulnerabilidades,
+        Securizacion del sistema
+      }
+      \caption{Flujo de trabajo} 
+    \end{center}
+  \end{figure}
+
+  \section{Ejemplo de href}
+
+  Este es un ejemplo de href \href{https://tryhackme.com}{\textbf{\color{green}HackTheBox}}
+
+
+  \section{Referencia a una imagen}
+ 
+  \begin{figure}[h]
+  \centering
+    \includegraphics[width=0.3\paperwidth]{\logoPortada}
+    \caption{Enumeracion de servicios y versiones}
+    \label{fig:servicesResults}
+
+  \end{figure}
+
+  \vspace{0.2cm}
+
+  Tal y como se aprecia en la figura \ref{fig:servicesResults} de la pagina
+  \pageref{fig:servicesResults}, hay un ejemplo de para hacer referencia a una
+  imagen
+ 
+
+  \clearpage
+
+\end{document}
