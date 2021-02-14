@@ -5,7 +5,7 @@ Comandos a seguir:
 ## Clonar y crear carpeta
 ```
 git clone https://github.com/lushop22/LaTexScript.git 
-mv LatexScript ~/.LatexScript```
+mv LatexScript ~/.LatexScript
 ```
 ## Exportar al path
 En caso de usar zsh:
